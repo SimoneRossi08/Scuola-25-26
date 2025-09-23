@@ -9,12 +9,11 @@ Il programma deve permettere, tramite menù:
 
 #include <stdio.h>
 #include <stdlib.h>
-#define DIM 5
 
 int main(){
 
-    int *array=malloc(DIM*sizeof(int));
-    int opt,n,t;
+    int *array=NULL; //array dinamico
+    int opt,n,t,dim=0,flag=0;
 
     do{
         printf("\nMenu:\n");
@@ -31,37 +30,47 @@ int main(){
             case 1:
                 printf("Inserisci il numero da aggiungere: ");
                 scanf("%d", &n);
-                array=realloc(array, (DIM+1)*sizeof(int));
+                array=(int*)realloc(array, (dim+1)*sizeof(int));
                 if(array==NULL){
-                    printf("Errore!\n");
+                    printf("Errore! Allocazione fallita.\n");
                     break;
                 }
-                array[DIM]=n;
-                DIM+1;
+                array[dim]=n;
+                dim+1;
+                printf("Numero aggiunto con successo.\n");
                 break;
             case 2:
-                for(int i=0; i<DIM; i++){
-                    printf("%d ", array[i]);
+                if(dim==0){
+                    printf("Errore! Array vuoto.\n");
                 }
-                printf("\n");
+                else{
+                    for(int i=0; i<dim; i++){
+                        printf("%d ", array[i]);
+                    }
+                    printf("\n");
+                }
                 break;
             case 3:
                 printf("Inserisci il numero da cercare: ");
                 scanf("%d", &n);
 
-                for(int i=0; i<DIM; i++){
+                for(int i=0; i<dim; i++){
                     if(array[i]==n){
+                        flag=1;
                         printf("Numero %d trovato nella posizione %d.\n", n, i);
                         break;
                     }
                     else{
-                    printf("Numero %d non trovato.\n", n);
+                    flag=0;
                     }
+                }
+                if(flag==0){
+                    printf("Errore! Numero %d non trovato.\n", n);
                 }
                 break;
             case 4:
-                for(int i=0; i<DIM-1; i++){
-                    for(int j=i+1; j<DIM; j++){
+                for(int i=0; i<dim-1; i++){
+                    for(int j=i+1; j<dim; j++){
                         if(array[i]>array[j]){
                             t=array[i];
                             array[i]=array[j];
@@ -73,11 +82,11 @@ int main(){
             case 5:
                 printf("Inserisci il numero da eliminare: ");
                 scanf("%d", &n);
-                for(int i=0;i<DIM; i++) {
+                for(int i=0;i<dim; i++) {
                     if(array[i]==n){
-                        for(int j=i; j<DIM-1; j++){
+                        for(int j=i; j<dim-1; j++){
                             array[j]=array[j+1];
-                            DIM-1;
+                            dim-1;
                         }
                     }
                 }
