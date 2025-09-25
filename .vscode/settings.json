@@ -1,7 +1,9 @@
 {
     "files.associations": {
         "stdio.h": "c",
-        "initializer_list": "c"
+        "initializer_list": "c",
+        "stdlib.h": "c",
+        "array.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
