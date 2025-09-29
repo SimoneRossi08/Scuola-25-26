@@ -15,7 +15,7 @@ int* creaarray(int _n){
 
     if(_array==NULL){
         printf("Errore di allocazione!\n");
-        return 1;
+        return NULL;
     }
 
     return _array;
@@ -33,8 +33,8 @@ int* insarray(int *_array, int _n){
 
 void stampaarray(int *_array, int _n){
 
-    for(int i=0; i<dim; i++){
-        printf("%d ", array[i]);
+    for(int i=0; i<_n; i++){
+        printf("%d ", _array[i]);
     }
     printf("\n");
 }
@@ -43,16 +43,31 @@ int* sommultipli(int *_array, int _n, int _s){
 
     for(int i=0; i<_n; i++){
         if(array[i]%3==0){
-            _s+=i;
+            _s+=_array[i];
         }
     }
     
     return _s;
 }
 
+int* disparray(int *_array, int _n, int *_dim){
+
+    int *_d=NULL;
+    *_dim=0;
+
+    for(int=0; i<_n; i++){
+        if(_array[i]%2!=0){
+            (*_dim)++;
+            int *tmp=realloc(_d, (*_dim)*sizeof(int));
+            if()
+        }
+    }
+
+}
+
 int main(){
     
-    int n,s,*array=NULL;
+    int n,s,*d,dim,*array=NULL;
 
     do{
         printf("Inserisci la quantità di elementi: ");
@@ -64,7 +79,10 @@ int main(){
     array=insarray(array,n);
     stampaarray(array,n);
     s=sommultipli(array,n,s);
-
+    printf("\nLa somma dei multipili di 3 vale %d.", s);
+    //creiamo l'array contenente i valori dispari tramite realloc
+    d=disparray(array,n,&dim);
     free(array);
+
     return 0;
 }
