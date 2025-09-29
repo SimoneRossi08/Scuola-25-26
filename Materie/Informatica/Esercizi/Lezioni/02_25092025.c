@@ -42,7 +42,7 @@ void stampaarray(int *_array, int _n){
 int* sommultipli(int *_array, int _n, int _s){
 
     for(int i=0; i<_n; i++){
-        if(array[i]%3==0){
+        if(_array[i]%3==0){
             _s+=_array[i];
         }
     }
