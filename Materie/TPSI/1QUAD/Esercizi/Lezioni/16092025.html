@@ -3,11 +3,15 @@
 	<head><title>GIARDINO</title></head>
 	<style>
 		body{
-			background-image: url("../1QUAD/Risorse/Immagini/JPG/margherita.jpg");
+			background-image: url("../margherita.jpg");
 			text-align: left;
 			padding-left: 1%;
 			padding-top: 1%;
 			padding-bottom: 1%;
+		}
+		#intestazione{
+			background-color: #007510;
+			color:#ffffff;
 		}
 		#titolo{
 			background-color: #007510;
@@ -16,14 +20,7 @@
 		}
 		#sottotitolo{
 			background-color: #007510;
-			float:left;
 			color:#ffffff;
-		}
-		#paragrafi{
-			background-color: #ffffff;
-			padding-left: 1%;
-			margin-left: 2%;
-			float: left;
 		}
 		#navbar{
 			background-color: #ffffff;
@@ -31,19 +28,29 @@
     		padding: 20px;
 			border-width: 5px;
 			border-color: red;
-			float: left;
+			float:left;
+		}
+		#paragrafi{
+			background-color: #ffffff;
+			padding-left: 1%;
+			margin-left: 2%;
+			float:inline-start;
 		}
 		#footer{
 			background-color: green;
 			color:#ffffff;
 			text-align: center;
-			margin-top: 2%;
-			padding: 1%;
+			padding: 15px;
+			position: fixed;
+			bottom: 0;
+			width: 100%;
 		}
 	</style>
 	<body>
-		<div id="titolo">Garden</div>
-		<div id="sottotitolo">Arredi giardino</div>
+		<div id="intestazione">
+			<div id="titolo">Garden</div><br>
+			<div id="sottotitolo">Arredi giardino</div>
+		</div>
 		<div id="contenuto">
 			<div id="navbar">
 				<ul>
