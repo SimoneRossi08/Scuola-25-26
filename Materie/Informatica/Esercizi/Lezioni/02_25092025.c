@@ -55,14 +55,20 @@ int* disparray(int *_array, int _n, int *_dim){
     int *_d=NULL;
     *_dim=0;
 
-    for(int=0; i<_n; i++){
+    for(int i=0; i<_n; i++){
         if(_array[i]%2!=0){
             (*_dim)++;
             int *tmp=realloc(_d, (*_dim)*sizeof(int));
-            if()
+            if(tmp==NULL){
+                printf("Errore di allocazione!\n");
+                free(_d);
+                return NULL;
+            }
+            _d=tmp
+            _d=[(*_dim)-1]=_array[i];
         }
     }
-
+    return _d;
 }
 
 int main(){
@@ -79,10 +85,13 @@ int main(){
     array=insarray(array,n);
     stampaarray(array,n);
     s=sommultipli(array,n,s);
-    printf("\nLa somma dei multipili di 3 vale %d.", s);
+    printf("\nLa somma dei multipili di 3 vale %d.", s(array, n));
     //creiamo l'array contenente i valori dispari tramite realloc
     d=disparray(array,n,&dim);
+    printf("\nL'Array contenente solo numeri dispari risulta:", );
+    stampaarray(d,dim);
     free(array);
+    free(d);
 
     return 0;
 }
