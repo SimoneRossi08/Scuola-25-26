@@ -13,7 +13,7 @@
 
 int* creaarray(int _n, int *_array){
 
-    int *_array=(int*)malloc(_n *sizeof(int));
+    _array=(int*)malloc(_n *sizeof(int));
 
     if(_array==NULL){
         printf("Errore di allocazione!\n");
@@ -26,7 +26,7 @@ int* creaarray(int _n, int *_array){
 int* insarray(int *_array, int _n){
 
     for(int i=0; i<_n; i++){
-        printf("Inserisci un elemento:");
+        printf("Inserisci un elemento: ");
         scanf("%d", &_array[i]);
     }
     
@@ -44,14 +44,28 @@ void stampaarray(int *_array, int _n){
 int* aumendim(int *_array, int _n){
     
     int d;
+    int* tmp;
 
     do{
         printf("Inserisci la nuova dimensione dell'array: ");
         scanf("%d", &d);
     }
-    while(n<0);
-    array=(int*)realloc(_array, (*_d)*sizeof(int));
-    
+    while(d<0);
+
+    tmp=(int*)realloc(_array, (d)*sizeof(int));
+    if(tmp==NULL){
+        printf("Errore di allocazione!\n");
+        free(_array);
+        return NULL;
+    }
+    _array=tmp;
+
+    for(int i=_n; i<d; i++){
+        printf("Inserisci un nuovo elemento:");
+        scanf("%d", &_array[i]);
+    }
+    _n=d;
+
     return _array;
 }
 
@@ -71,9 +85,10 @@ int main(){
     printf("Cosa vuoi fare con l'attuale array?\n");
     printf("1. Aumentare la sua dimensione.\n");
     printf("2. Mantenerlo uguale.\n");
+    scanf("%d", &opt);
 
     do{
-        switch (opt){
+        switch(opt){
         case 1:
                 array=aumendim(array, n);
             break;
@@ -83,11 +98,11 @@ int main(){
             break;
 
         default:
-            printf("Errore! Scelta inesisitente.")
+            printf("Errore! Scelta inesisitente.");
             break;
         }
     }
-    while(n!=1 && n!=2);
+    while(opt!=1 || opt!=2);
 
     stampaarray(array, n);
 
