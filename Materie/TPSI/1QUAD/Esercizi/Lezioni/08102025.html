@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JavaScript</title>
+        <script>
+            function mostraOra(){
+
+                var d=new Date();
+                var ora=d.toLocaleDateString();
+                alert(ora);
+                
+            }
+        </script>
+    </head>
+	<body>
+        <form>
+            <input type="button" onclick="mostraOra();" value="Che ora è?">
+        </form>
+	</body>
+</html>
