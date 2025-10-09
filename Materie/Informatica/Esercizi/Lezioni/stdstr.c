@@ -1,4 +1,4 @@
-#include "string.h"
+#include "stdstr.h"
 #include <stdio.h>
 #include <stdlib.h>
 

@@ -3,7 +3,8 @@
         "stdio.h": "c",
         "initializer_list": "c",
         "stdlib.h": "c",
-        "array.h": "c"
+        "array.h": "c",
+        "string.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
