@@ -4,7 +4,8 @@
         "initializer_list": "c",
         "stdlib.h": "c",
         "array.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "cstdlib": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

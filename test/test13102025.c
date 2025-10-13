@@ -14,8 +14,9 @@ Il programma deve permettere, tramite menù:
 
 int main(){
 
-    int* array=NULL;
+    int *array=NULL;
     int opt,dim=0;
+    int n=0;
 
     printf("-----MENU------\n");
     printf("1. Aggiungi numero\n");
@@ -30,7 +31,17 @@ int main(){
     do{
         switch(opt){
         case 1:
-                addnum(array);
+                printf("\nInserisci un numero: ");
+                scanf("%d", &n);
+
+                array=(int*)realloc(n, (dim+1)*sizeof(int));
+                if(array==NULL){
+                    printf("Errore di allocazione!\n");
+                    return 1;
+                }
+                for(int i; i<dim; i++){
+                    printf("%d", array[i]);
+                }
             break;
         case 2:
             
@@ -45,24 +56,8 @@ int main(){
             
             break;
         default:
-            printf()
+            printf("\nErrore! Opzione inesistente.");
             break;
         }
     }while(opt!=6);
-}
-
-int addnum(int array){
-
-    int n;
-
-    printf("Inserisci un numero: ");
-    scanf("%d", &n);
-
-    array=(int)realloc(n,dim+1)sizeof(int));
-
-    for(int i; i<dim; i++){
-        printf("%d", array[i]);
-    }
-
-    return array;
 }
