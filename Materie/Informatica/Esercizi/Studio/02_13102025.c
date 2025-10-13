@@ -10,9 +10,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int alloc(int* array, int *dim);
-int addval(int* array, int *dim);
-void stampa(int* array, int *dim);
+int alloc(int *array, int *dim);
+int addval(int *array, int *dim);
+void stampa(int *array, int *dim);
 
 int main(){
 
@@ -20,26 +20,29 @@ int main(){
     int opt;
     int *dim;
 
-    printf("-----MENU-----");
-    scanf("%d", &opt);
-    switch(opt){
-    case 1:
-            alloc(array, dim);
-        break;
-    case 2:
-            addval(array, dim);
-        break;
-    case 3:
-            stampa(array,dim);
-        break;
-    default:
-    printf("\nErrore! Opzione inesistente.");
-        break;
+    do{
+        printf("-----MENU-----");
+        scanf("%d", &opt);
+        switch(opt){
+        case 1:
+                alloc(&array, dim);
+            break;
+        case 2:
+                addval(&array, dim);
+            break;
+        case 3:
+                stampa(&array,dim);
+            break;
+        default:
+        printf("\nErrore! Opzione inesistente.");
+            break;
+        }
     }
+    while(opt!=6)
 
 }
 
-int alloc(int* array, int *dim){
+int alloc(int *array, int *dim){
 
     printf("\nInserire la dimensione:");
     scanf("%d", dim);
@@ -49,11 +52,11 @@ int alloc(int* array, int *dim){
     return *array;
 }
 
-int addval(int* array, int *dim){
+int addval(int *array, int *dim){
 
     int n;
 
-    for(int i=0; i<dim; i++){
+    for(int i=0; i<*dim; i++){
         printf("\nInserisci un numero: ");
         scanf("%d", &n);
         *array[i]=n;
@@ -62,9 +65,9 @@ int addval(int* array, int *dim){
     return *array;
 }
 
-void stampa(int* array, int *dim){
+void stampa(int *array, int *dim){
 
-    for(int i=0; i<dim; i++){
+    for(int i=0; i<*dim; i++){
         printf("%d\t", *array[i]);
     }
 }
