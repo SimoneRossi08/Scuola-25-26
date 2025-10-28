@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 typedef char* string;
-#define DIM 30;
+#define DIM 30
 
 int main(){
 
