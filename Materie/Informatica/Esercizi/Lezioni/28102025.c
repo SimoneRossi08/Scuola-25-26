@@ -12,14 +12,15 @@
 #include <stdlib.h>
 #include <string.h>
 typedef char* string;
+#define DIM 30;
 
 int main(){
 
     string s1="habibi";
     string s2="yallah";
-    string s3;
-    string s4;
-    string s5;
+    string s3[DIM];
+    string s4[DIM];
+    string s5[DIM];
     char c;
 
     printf("%s\n", s1);
@@ -31,10 +32,10 @@ int main(){
     int len2=strlen(s2);
 
     // copia di stringhe
-    s3=strncpy(s3, s1, len1);
-    s4=strncpy(s4, s2, len2);
-    printf("%s\n", s2);
+    strncpy(s3, s1, len1);
+    strncpy(s4, s2, len2);
     printf("%s\n", s3);
+    printf("%s\n", s4);
     printf("\n");
 
     // confronto tra stringhe
@@ -42,15 +43,15 @@ int main(){
     printf("\n");
 
     // concatena stringhe
-    s5=strcat(s1,s2);
+    s5[DIM]=strcat(s1,s2);
     printf("%s\n", s5);
     printf("\n");
 
     // cerca carattere
-    /*printf("Inserisci un carattere: \n",);
+    printf("Inserisci un carattere: \n",);
     scanf("%c ", &c);
     printf("%d\n", );
-    printf("\n");*/
+    printf("\n");
 
     // cerca stringa
     printf("%s\n", strstr(s5,s1));
