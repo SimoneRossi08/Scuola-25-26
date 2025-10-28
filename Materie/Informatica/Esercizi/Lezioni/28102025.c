@@ -47,10 +47,13 @@ int main(){
     printf("\n");
 
     // cerca carattere
-    printf("Inserisci un carattere: \n",);
+    /*printf("Inserisci un carattere: \n",);
     scanf("%c ", &c);
     printf("%d\n", );
-    printf("\n");
+    printf("\n");*/
+
+    // cerca stringa
+    printf("%s\n", strstr(s5,s1));
 
     return 0;
 }
