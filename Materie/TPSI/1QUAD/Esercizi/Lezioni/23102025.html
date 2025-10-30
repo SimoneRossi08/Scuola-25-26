@@ -21,6 +21,7 @@
 		</style>
 		<script>
 			var dimchar=15;
+			var divwidth=250;
 			function message(){
                 document.getElementById("output").innerHTML=text.value;
             }
@@ -38,6 +39,10 @@
                 dimchar--;
 				document.getElementById("output").style.fontSize=dimchar+"px";
             }
+			function zoomdiv(){
+                divwidth+=20;
+				document.getElementById("output").style.width=divwidth+"px";
+            }
 		</script>
 	</head>
 	<body>
@@ -50,6 +55,7 @@
 			<input type="button" id="button2" value="Cambia colore" onclick="changecolor()"></input><br><br>
 			<input type="button" id="button3" value="Ingrandisci il testo" onclick="zoomtext()"></input><br><br>
 			<input type="button" id="button4" value="Diminuisci il testo" onclick="dezoomtext()"></input><br><br>
+			<input type="button" id="button5" value="Ingrandisci la div" onclick="zoomdiv()"></input><br><br>
 			<div id="output"></div>
 		</form>
 	</body>
