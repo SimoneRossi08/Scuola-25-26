@@ -20,14 +20,23 @@
 			}
 		</style>
 		<script>
+			var dimchar=15;
 			function message(){
                 document.getElementById("output").innerHTML=text.value;
             }
 			function changecolor(){
-                var msg=document.getElementById("output").value;
-				var color=document.getElementById("output").value;
+                var msg=document.getElementById("text").value;
+				var color=document.getElementById("color").value;
 				document.getElementById("output").innerHTML=msg;
 				document.getElementById("output").style.color=color;
+            }
+			function zoomtext(){
+                dimchar++;
+				document.getElementById("output").style.fontSize=dimchar+"px";
+            }
+			function dezoomtext(){
+                dimchar--;
+				document.getElementById("output").style.fontSize=dimchar+"px";
             }
 		</script>
 	</head>
@@ -38,7 +47,9 @@
 			<label>Inserisci colore: </label>
 			<input type="text" id="color" maxlenght="200"></input><br><br>
 			<input type="button" id="button1" value="Ricopia messaggio" onclick="message()"></input><br><br>
-			<input type="button" id="button1" value="Cambia colore" onclick="changecolor()"></input><br><br>
+			<input type="button" id="button2" value="Cambia colore" onclick="changecolor()"></input><br><br>
+			<input type="button" id="button3" value="Ingrandisci il testo" onclick="zoomtext()"></input><br><br>
+			<input type="button" id="button4" value="Diminuisci il testo" onclick="dezoomtext()"></input><br><br>
 			<div id="output"></div>
 		</form>
 	</body>
