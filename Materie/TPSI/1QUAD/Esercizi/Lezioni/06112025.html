@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+        <style>
+			#triangolo{
+				width: 300px;
+				height: 300px;
+			}
+            #quadrato{
+				width: 200px;
+				height: 200px;
+			}
+            #cerchio{
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+		<script>
+            function tricolor(){
+                var color=red
+				document.getElementById("background").style.color=color;;
+            }
+            function quacolor(){
+				document.getElementById("background").style.color=color;;
+            }
+            function cercolor(){
+				document.getElementById("background").style.color=color;;
+            }
+		</script>
+	</head>
+	<body>
+		<div id="triangolo">
+            <img src="triangolo.png" onmouseover="tricolor">
+        </div>
+        <div id="quadrato">
+            <img src="quadrato.png" onmouseover="quacolor">
+        </div>
+        <div id="cerchio">
+            <img src="cerchio.png" onmouseover="cercolor">
+        </div>
+	</body>
+</html>

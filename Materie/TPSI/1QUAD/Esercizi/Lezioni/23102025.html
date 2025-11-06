@@ -43,6 +43,10 @@
                 divwidth+=20;
 				document.getElementById("output").style.width=divwidth+"px";
             }
+			function dezoomdiv(){
+                divwidth-=20;
+				document.getElementById("output").style.width=divwidth+"px";
+            }
 		</script>
 	</head>
 	<body>
@@ -50,12 +54,13 @@
 			<label>Inserisci un messagio: </label>
 			<input type="text" id="text" maxlenght="200"></input><br><br>
 			<label>Inserisci colore: </label>
-			<input type="text" id="color" maxlenght="200"></input><br><br>
+			<input type="text" id="color" maxlenght="200"></input><br><br><br>
 			<input type="button" id="button1" value="Ricopia messaggio" onclick="message()"></input><br><br>
 			<input type="button" id="button2" value="Cambia colore" onclick="changecolor()"></input><br><br>
 			<input type="button" id="button3" value="Ingrandisci il testo" onclick="zoomtext()"></input><br><br>
 			<input type="button" id="button4" value="Diminuisci il testo" onclick="dezoomtext()"></input><br><br>
 			<input type="button" id="button5" value="Ingrandisci la div" onclick="zoomdiv()"></input><br><br>
+			<input type="button" id="button6" value="Diminuisci la div" onclick="dezoomdiv()"></input><br><br>
 			<div id="output"></div>
 		</form>
 	</body>
