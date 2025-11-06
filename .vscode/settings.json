@@ -6,7 +6,8 @@
         "array.h": "c",
         "string.h": "c",
         "cstdlib": "c",
-        "random": "c"
+        "random": "c",
+        "typeinfo": "c"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "python-envs.defaultEnvManager": "ms-python.python:system",
