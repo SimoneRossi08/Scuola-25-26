@@ -21,7 +21,7 @@ void stampaarray(int *_array, int _n){
 
 int main(){
 
-    int +array=NULL;
+    int array=NULL;
     int opt;
 
     printf("Quale opzione vuole eseguire? \n");
