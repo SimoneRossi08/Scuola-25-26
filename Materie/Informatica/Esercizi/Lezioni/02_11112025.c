@@ -42,7 +42,5 @@ int main(){
     cfr=cfrtr(cfr,n);
 
 
-    printf("\n Ecco la parola cifrata. \n %s", cfr);
-
     return 0;
 }
