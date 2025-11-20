@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Somma valori</title></head>
+    <script>
+        function calcola(){
+
+            // Selezioniamo gli elementi dal DOM
+            const input1 = document.getElementById("num1");
+            const input2 = document.getElementById("num2");
+            const risultato = document.getElementById("risultato");
+            const bottone = document.getElementById("sommaBtn");
+
+            // Leggiamo i valori dagli input e li convertiamo in numeri
+            const valore1 = parseFloat(input1.value) || 0;
+            const valore2 = parseFloat(input2.value) || 0;
+
+            // Calcoliamo la somma
+            const somma = valore1 + valore2;
+
+            // Mostriamo il risultato
+            risultato.textContent = somma;
+        }
+    </script>
+    <body>
+        <h2>Somma di due numeri</h2>
+
+        <input id="num1" type="number" placeholder="Primo numero">
+        <input id="num2" type="number" placeholder="Secondo numero">
+        <intput type="button" value="Calcola somma" onclick=""calcola()>
+
+        <p>Risultato: <span id="risultato">0</span></p>
+    </body>
+</html>

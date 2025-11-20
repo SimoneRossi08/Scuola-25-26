@@ -1,0 +1,24 @@
+<!--
+    PREDISPORRE LA PAGINA HTML
+        - CREARE UN INPUT TYPE PER L'INSERIMENTO DEL VALORE
+        - PULSANTE CHE AL CLICK MI CONTROLLI SE HO INDOVINATI I NUMERI
+-->
+
+<!DOCTYPE html>
+<html>
+    <head><title>INDOVINA NUMERI</title></head>
+    <script>
+        function indovina(){
+            const n=45;
+            const input=document.getElementById("num");
+            Math.abs(n-input);
+            if(Math.abs(n-input)>20){
+                document.body.style.backgroundColor=red;
+            }
+        }
+    </script>
+    <body>
+        <input id="num" type="number" placeholder="Inserisci numero">
+        <input type="button" value="Invio" onclick="indovina()">
+    </body>
+</html>
