@@ -11,15 +11,19 @@ typedef char* string;
 
 string alterna(string s1, string s2){
 
-    int cnt=0;
+    int i=0;
     int len=(strlen(s1)+strlen(s2));
-    string s3=malloc((len+1)*sizeof(char));
+    //printf("\n%d", len);
+    string s3=malloc((len)*sizeof(char));
 
-    for(int i=0; i<len; i++){
-        for(int j=0; j<len; j++){
-            
-        }
+    for(int cnt=0; cnt<len; cnt+=2){
+        s3[cnt]=s1[i];
+        s3[cnt+1]=s2[i];
+        //printf("\n%c", s3[cnt]);
+        i++;
+        //printf("\n%d", cnt);
     }
+
     return s3;
 }
 
@@ -32,10 +36,10 @@ int main(){
     printf("\nInserisci una stringa: ");
     fgets(s1, 50, stdin);
     
-    printf("\nInserisci una stringa: ");
+    printf("Inserisci una stringa: ");
     fgets(s2, 50, stdin);
 
     s3=alterna(s1,s2);
 
-    printf("La stringa alternata è: \n%s", s3);
+    printf("\nLa stringa alternata è: \n%s", s3);
 }
