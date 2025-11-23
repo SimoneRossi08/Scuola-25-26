@@ -6,9 +6,9 @@
 typedef char* string;
 
 string inverti(string s1){
-    
-    string s2=malloc(strlen(s1)*sizeof(char));
-    for(int i=0; i<strlen(s1); i++){
+
+    string s2;
+    for(int i=0; s1[i]!='\0'; i++){
         s2[i]=s1[strlen(s1)-i-1];
     }
 
@@ -23,5 +23,6 @@ int main(){
     scanf("%s", stringa);
 
     stringa=inverti(stringa);
-    printf("\nLa stringa al contrario è: \n%s", stringa);
+
+    printf("La stringa al contrario è: %s", stringa);
 }
