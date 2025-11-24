@@ -14,6 +14,10 @@ typedef char* string;
 string inseriscistringa(string s){
 
     s=(string)malloc(20*sizeof(char));
+    if(s==NULL){
+        printf("ERRORE!");
+        exit(1);
+    }
     printf("Inserisci una stringa: ");
     fgets(s, 20, stdin);
 
