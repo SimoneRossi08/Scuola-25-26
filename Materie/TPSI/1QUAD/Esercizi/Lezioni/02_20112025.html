@@ -10,15 +10,27 @@
     <script>
         function indovina(){
             const n=45;
-            const input=document.getElementById("num");
-            Math.abs(n-input);
-            if(Math.abs(n-input)>20){
-                document.body.style.backgroundColor=red;
+            const input=document.getElementById("num").value;
+            const d=Math.abs(parseFloat(n-input));
+            if(d>20){
+                document.body.style.backgroundColor="red";
             }
+            if(d>10 && d<20){
+                document.body.style.backgroundColor="yellow";
+            }
+            if(d<10){
+                document.body.style.backgroundColor="green";
+            }
+        }
+        function resetta(){
+            document.getElementById("num").value="";
+            document.body.style.backgroundColor="white";
         }
     </script>
     <body>
-        <input id="num" type="number" placeholder="Inserisci numero">
-        <input type="button" value="Invio" onclick="indovina()">
+        <label>Inserisci numero: </label>
+        <input id="num" type="number" placeholder="Inserisci numero">&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="button" value="Invio" onclick="indovina()">&nbsp;&nbsp;
+        <input type="button" value="Reset" onclick="resetta()">
     </body>
 </html>
