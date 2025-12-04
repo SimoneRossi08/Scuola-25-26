@@ -4,9 +4,36 @@
 <html>
     <head><title>Calcolatrice</title></head>
     <script>
-
+        let str1="", str2="", op="";
+        function tasto(v){
+            document.calc.display.value+=v;
+            str1+=v;
+        }
     </script>
     <body>
-        
+        <table border="3">
+            <tr>
+                <form id="calc">
+                    <input type="text" name="display" value="" size="26"><br><br>
+                    <table border="2">
+                        <tr>
+                            <input type="button" value="1" onclick="tasto(this.value)">
+                            <input type="button" value="2" onclick="tasto(this.value)">
+                            <input type="button" value="×" onclick="">
+                        </tr>
+                        <tr>
+                            <input type="button" value="-" onclick="">
+                        </tr>
+                        <tr><input type="button" value="=" onclick="">
+                        </tr>
+                        <tr>
+                            <input type="button" value="0" onclick="tasto(this.value)">
+                            <input type="button" value="." onclick="tasto(this.value)">
+                        </tr>
+                    </table>
+                </form>
+            </td>
+            <tr></td>
+        </table>
     </body>
 </html>
