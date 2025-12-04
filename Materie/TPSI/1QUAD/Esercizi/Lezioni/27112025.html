@@ -9,31 +9,72 @@
             document.calc.display.value+=v;
             str1+=v;
         }
+        function operat(p){
+            op=p;
+            document.calc.display.value="";
+            str2=eval(str1);
+            str1="";
+        }
+        function operaz(){
+            switch(op){
+                case"+":
+                    document.calc.display.value=str2+eval(str1);
+                break;
+                case"-":
+                    document.calc.display.value=str2-eval(str1);
+                break;
+                case"*":
+                    document.calc.display.value=str2*eval(str1);
+                break;
+                case"*":
+                    document.calc.display.value=str2/eval(str1);
+                break;
+                case"^":
+                    document.calc.display.value=str2^eval(str1);
+                break;
+            }
+        }
+        function canc(){
+            document.calc.display.value="";
+        }
     </script>
     <body>
-        <table border="3">
-            <tr>
-                <form id="calc">
-                    <input type="text" name="display" value="" size="26"><br><br>
-                    <table border="2">
-                        <tr>
-                            <input type="button" value="1" onclick="tasto(this.value)">
-                            <input type="button" value="2" onclick="tasto(this.value)">
-                            <input type="button" value="×" onclick="">
-                        </tr>
-                        <tr>
-                            <input type="button" value="-" onclick="">
-                        </tr>
-                        <tr><input type="button" value="=" onclick="">
-                        </tr>
-                        <tr>
-                            <input type="button" value="0" onclick="tasto(this.value)">
-                            <input type="button" value="." onclick="tasto(this.value)">
-                        </tr>
-                    </table>
-                </form>
-            </td>
+        <table border=3>
             <tr></td>
+                <form id="calc">
+                    <br><input type="text" name="display" value="" size="26"><br><br>
+                    <table border=2>
+                        <tr>
+                            <input type="button" value=" * " onclick="operat(this.value)">&nbsp;
+                            <input type="button" value="0" onclick="tasto(this.value)">&nbsp;
+                            <input type="button" value=" / " onclick="operat(this.value)">&nbsp;
+                            
+                        </tr><br><br>
+                        <tr>
+                            <input type="button" value="1" onclick="tasto(this.value)">&nbsp;
+                            <input type="button" value="3" onclick="tasto(this.value)">&nbsp;
+                            <input type="button" value="3" onclick="tasto(this.value)">&nbsp;&nbsp;
+                            <input type="button" value=" + " onclick="operat(this.value)">
+                        </tr><br><br>
+                        <tr>
+                            <input type="button" value="4" onclick="tasto(this.value)">&nbsp;
+                            <input type="button" value="5" onclick="tasto(this.value)">&nbsp;
+                            <input type="button" value="6" onclick="tasto(this.value)">&nbsp;&nbsp;
+                            <input type="button" value=" - " onclick="operat(this.value)">
+                        </tr><br><br>
+                        <tr>
+                            <input type="button" value="7" onclick="tasto(this.value)">&nbsp;
+                            <input type="button" value="8" onclick="tasto(this.value)">&nbsp;
+                            <input type="button" value="9" onclick="tasto(this.value)">&nbsp;&nbsp;
+                            <input type="button" value=" ^ " onclick="tasto(this.value)">
+                        </tr><br><br>
+                        <tr>
+                            <input type="button" value="." onclick="tasto(this.value)">&nbsp;
+                            <input type="button" value="=" onclick="operaz()">&nbsp;&nbsp;
+                            <input type="button" value="CE" onclick="canc()">
+                        </tr><br><br>
+                    </table>
+                </form>        
         </table>
     </body>
 </html>
