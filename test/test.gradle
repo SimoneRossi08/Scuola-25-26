@@ -1,0 +1,48 @@
+// Build Gradle esempio per progetto Java
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.example'
+version = '1.0.0'
+description = 'Progetto di esempio con Gradle'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit per i test
+    testImplementation 'junit:junit:4.13.2'
+    
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.7'
+    implementation 'org.slf4j:slf4j-simple:2.0.7'
+    
+    // JSON processing
+    implementation 'com.google.code.gson:gson:2.10.1'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+application {
+    mainClass = 'com.example.Main'
+}
+
+tasks.named('test') {
+    useJUnit()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+task customTask {
+    description = 'Un task personalizzato'
+    doLast {
+        println 'Esecuzione del task personalizzato!'
+    }
+}
