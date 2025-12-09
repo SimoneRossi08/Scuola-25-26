@@ -1,15 +1,15 @@
-/* creare una struct Squadra contenente le seguenti 
-informazioni: nome, colore, punteggio e le informazioni del proprio  
-alenatore(nome, cognome, titoli)
-caricato un massimo di 10 squadre stampare quelle 
-con punteggio superiore a 100 e numero di titoli per allenatore superiore a 10
+/*          Creare una struct Squadra contenente le seguenti 
+    informazioni: nome, colore, punteggio e le informazioni del proprio  
+                    alenatore(nome, cognome, titoli)
+            caricato un massimo di 10 squadre stampare quelle 
+    con punteggio superiore a 100 e numero di titoli per allenatore superiore a 10
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct squadra{
+struct squadra{
 
 	char nome[20];
 	char colore[20];
