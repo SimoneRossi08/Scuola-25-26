@@ -1,0 +1,45 @@
+<!-- Realizzare una singola pagina html(+css,+javascript) con elementi di input,
+		pulsanti e div di output: l'utente agisce sugli elementi attivi e
+				ottiene un feedback nel div di output. -->
+				
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simulazione della Verifica<title>
+		<style>
+			#input{
+				border: 3px;
+			}
+			#output{
+				border: 3px;
+				font-family: verdana;
+			}
+		</style>
+		<script>
+			function cambiaColore(){
+				var color=document.getElementById("colore").value;
+				document.getElementById("output").style.color=color;
+			}
+			function oscuraScatola(){
+				document.bgColor="black";
+			}
+			function inserisciTesto(){
+				document.getElementById("testo").innerHTML=description.value;
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<form>
+				<label>Scatola 1</label>
+				<div id="input">
+					<input id="colore"type="text" value="Cambia colore della Scatola 2" onclick="cambiaColore();"><br><br>
+					<input type="button" value="Oscura la Scatola 2" onclick="oscuraScatola();">
+					<input id="testo"type="text" value="Inserisci testo" onclick="inserisciTesto();">
+				</div>
+				<label>Scatola 2</label>
+				<div id="output"></div>
+			</form>
+		</div>
+	</body>
+</html>
