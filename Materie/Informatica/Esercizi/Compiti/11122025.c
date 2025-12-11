@@ -107,7 +107,7 @@ Lista* crea_lista(){
 }
 
 int main(){
-    
+
     Lista *parco_auto=crea_lista();
     int scelta;
     char c;
@@ -115,6 +115,7 @@ int main(){
         printf("\n===== AUTONOLEGGIO 2000 =====\n");
         printf("1. Inserisci nuova auto\n");
         printf("2. Visualizza auto\n");
+        printf("3. Elimina auto\n");
         printf("0. Esci\n");
         printf("Scelta: ");
         scanf("%d", &scelta);
@@ -125,6 +126,9 @@ int main(){
                 inserisciAuto(parco_auto);
                 break;
             case 2:
+                eliminaAuto(parco_auto);
+                break;
+            case 3:
                 stampaAuto(parco_auto);
                 break;
             case 0:
