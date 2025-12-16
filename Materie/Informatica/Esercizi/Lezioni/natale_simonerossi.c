@@ -110,14 +110,17 @@ void stampa_lista(Lista *l){
 
     Canzone* current=l->testa;
     printf("Lista: ");
+
     while(current!=NULL){
-        printf("%d->", current->dato);
+        printf("%d->", current->titolo);
+        printf("%d->", current->artista);
+        printf("%d->", current->durata);
         current=current->next;
     }
+
     printf("FINE LISTA\n");
     printf("Lunghezza: %d\n", l->lunghezza);
-}
-}
+    }
 
 void inserisci_canzone_lista(Lista *l) {
     Canzone* nuovaCanzone=(Canzone*)malloc(sizeof(Canzone));
