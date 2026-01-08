@@ -112,9 +112,9 @@ void stampa_lista(Lista *l){
     printf("Lista: ");
 
     while(current!=NULL){
-        printf("%d->", current->titolo);
-        printf("%d->", current->artista);
-        printf("%d->", current->durata);
+        printf("%d ", current->titolo);
+        printf("%d ", current->artista);
+        printf("%d ", current->durata);
         current=current->next;
     }
 
@@ -156,7 +156,7 @@ void libera_memoria(Lista* l){
 
 void inserisci_canzone_playlist(Lista *lista_canzoni, Lista *playlist){
 
-    Lista* nuovaCanzone=(Lista*)malloc(sizeof(Lista));
+    Canzone* nuovaCanzone=(Lista*)malloc(sizeof(Lista));
     nuovaCanzone->dato=valore;
     
     if(lista_canzoni->testa==NULL){
@@ -164,7 +164,7 @@ void inserisci_canzone_playlist(Lista *lista_canzoni, Lista *playlist){
         nuovaCanzone->next=nuovaCanzone;
     }
     else{
-        Lista* current=lista_canzoni->testa;
+        Canzone* current=lista_canzoni->testa;
         while(current->next!=lista->testa){
             current=current->next;
         }
@@ -182,7 +182,7 @@ void stampa_playlist(Lista* playlist){
         return;
     }
     
-    Lista* current=lista->testa;
+    Canzone* current=lista->testa;
     printf("Lista circolare: ");
     
     for (int i = 0; i < lista->lunghezza; i++){
@@ -195,19 +195,20 @@ void stampa_playlist(Lista* playlist){
 void cancella_canzone_playlist(Lista *playlist){
 
     if(playlist->testa==NULL){
+        printf("Playlist vuota\n");
         return;
     }
     if(playlist->testa->dato==valore){
-        playlist* temp=playlist->testa;
+        Canzone* temp=playlist->testa;
         playlist->testa=playlist->testa->next;
         free(temp);
         playlist->lunghezza--;
         return;
     }
-    Lista* current=playlist->testa;
-    while (current->next!=NULL){
+    Canzzone* current=playlist->testa;
+    while(current->next!=NULL){
         if(current->next->dato==valore){
-            Lista* temp=current->next;
+            Canzone* temp=current->next;
             current->next=current->next->next;
             free(temp);
             playlist->lunghezza--;

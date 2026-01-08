@@ -1,0 +1,45 @@
+    <!-- Inserire due numeri all'interno di due input type ed eseguirne la somma.
+    Prevedere un ulteriore pulsante tale che a secondo che la somma risulta essere pari
+    o dispari verrà colorato lo sfondo della div, in cui visualizzeremo il risultato,
+in due colori diversi; in un alert invece verrà comunicato se il valore è pari o dispari. -->
+
+<!DOCTYPE html>
+<html>
+    <head><title>COMPITO VACANZE</title></head>
+    <style>
+			#sfondo{
+				width: 400px;
+				height: 300px;
+				border: 1px solid black;
+			}
+		</style>
+    <script>
+        let somma
+        function calcSomma(){
+            let numero1=parseInt(document.getElementById("num1").value);
+            let numero2=parseInt(document.getElementById("num2").value);
+            somma=numero1+numero2;
+
+            document.getElementById("risultato").textContent=somma;
+        }
+        function cambiaSfondo(){
+            if(somma%2==0){
+                document.getElementById("sfondo").style.backgroundColor="green";
+                alert("Il risultato è pari");
+            }
+            else{
+                document.getElementById("sfondo").style.backgroundColor="red";
+                alert("Il risultato è dispari");
+            }
+        }
+    </script>
+    <body>
+        <input type="number" id="num1" placeholder="Inserisci il primo numero" name="num1">&nbsp;
+        <input type="number" id="num2" placeholder="Inserisci il secondo numero" name="num2"><br>
+        <input type="button" value="Calcola somma" onclick="calcSomma()"></input><br><br>
+        <input type="button" value="Cambia sfondo" onclick="cambiaSfondo()"></input><br>
+        <div id="sfondo">
+            <label>Risultato: </label><div id="risultato">0</div>
+        </div>
+    </body>
+</html>
