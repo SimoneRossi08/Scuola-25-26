@@ -11,17 +11,15 @@
 #include <stdlib.h>
 
 typedef struct libro{
-    
     char titolo[20];
     char autore[20];
     int anno;
 }libro;
 
 void caricaLibri(libro v, int n){
+
     for (int i=0; i<n; i++){
-
         printf("\n\nLibro %d: ", i);
-
         printf("\nTitolo: ");
         scanf("%s", v[i].titolo);
         printf("Autore: ");
@@ -50,9 +48,9 @@ void cercaLibro(libro v, int n){
 void stampa(libro v, int n){
 
     for(int i=0; i<n; i++){
-        printf("Squadra: %s\n", v[i].titolo);
-        printf("Colore: %s\n", v[i].autore);
-        printf("Punteggio: %d\n", v[i].anno);
+        printf("Titolo: %s\n", v[i].titolo);
+        printf("Autore: %s\n", v[i].autore);
+        printf("Anno: %d\n", v[i].anno);
     }
 }
 
