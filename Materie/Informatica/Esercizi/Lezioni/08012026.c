@@ -28,7 +28,6 @@ typedef struct{
 studente inserimentoDatiStudente(int n,studente* studenti){
 
     for(int i=0; i<n; i++){
-
         printf("Inserisci il cognome dello studente: ");
         scanf("%s", studenti->cognome);
         getchar();

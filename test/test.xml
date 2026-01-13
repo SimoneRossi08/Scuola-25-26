@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca>
+  <libro>
+    <titolo>Il Signore degli Anelli</titolo>
+    <autore>J.R.R. Tolkien</autore>
+    <anno>1954</anno>
+    <genere>Fantasy</genere>
+    <prezzo valuta="EUR">25.99</prezzo>
+  </libro>
+  
+  <libro>
+    <titolo>1984</titolo>
+    <autore>George Orwell</autore>
+    <anno>1949</anno>
+    <genere>Distopia</genere>
+    <prezzo valuta="EUR">18.50</prezzo>
+  </libro>
+  
+  <libro>
+    <titolo>Orgoglio e Pregiudizio</titolo>
+    <autore>Jane Austen</autore>
+    <anno>1813</anno>
+    <genere>Romanzo</genere>
+    <prezzo valuta="EUR">15.00</prezzo>
+  </libro>
+</biblioteca>

@@ -16,7 +16,7 @@ typedef struct libro{
 typedef char* string;
 
 void compatta(string buffer, int lun){
-    if(lung>0 && buffer[lun-1]=='\n'){
+    if(lun>0 && buffer[lun-1]=='\n'){
         buffer[lun-1]='\0';
         lun--;
     }
@@ -49,6 +49,10 @@ int main(){
 
     n+=1;
     libri=(libro*)realloc(libri,n*sizeof(libro));
+    if(libri==NULL){
+        printf("Errore di allocazione");
+        return 1;
+    }
 
     strcpy(libri[3].titolo, "Orgoglio e pregiudizio");
     strcpy(libri[3].autore, "Jane Austen");
@@ -86,7 +90,35 @@ int main(){
     printf("\nInserisci un libro da eliminare:");
     fgets(Libro,50,stdin);
     lunghezza=strlen(Libro);
-    compatta(Libro,lunghezzo);
+    compatta(Libro,lunghezza);
+
+    for(int i=0; i<n; i++){
+        if(!(strcmp(libri[i].titolo,Libro))){
+            for(int j=i; j<(n-1); j++){
+                strcpy(libri[j].titolo,libri[j+1].titolo);
+                strcpy(libri[j].autore,libri[j+1].autore);
+                libri[j].anno=libri[j+1].anno;
+                libri[j].prezzo=libri[j+1].prezzo;
+            }
+            n-=1;
+        }
+    }
+
+    libri=(libro*)realloc(libri,n*sizeof(libro));
+    if(libri==NULL){
+        printf("Errore di allocazione");
+        return 1;
+    }
+
+    for(int i=0; i<n; i++){
+        printf("Libro: %d\n", i+1);
+        printf("Titolo: %s\n", libri[i].titolo);
+        printf("Autore: %s\n", libri[i].autore);
+        printf("Anno: %d\n", libri[i].anno);
+        printf("Prezzo: %.2f\n\n", libri[i].prezzo);
+    }
     
+    free(libri);
+
     return 0;
 }
