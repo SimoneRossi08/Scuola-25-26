@@ -123,7 +123,7 @@ int main(){
 				stampa(biblioteca,&n);
 				break;
 			case 3:
-
+				registraLibro(biblioteca,*n);
 				break;
 			case 4:
 
