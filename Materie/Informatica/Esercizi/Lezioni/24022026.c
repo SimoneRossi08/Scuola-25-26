@@ -97,6 +97,26 @@ void registraLibro(libro *l,int n){
 		}
 	}
 }
+
+void visualizzaLibriPrestito(libro* l, int n){
+
+	for(int i=0; i<n; i++){
+		if(l[i].copiedisp<l[i].copietot){
+			printf("Il libro in prestito è: %s.", l[i].titolo);
+		}
+	}
+}
+
+void visualizzaPrestitoScaduto(libro* l,int n){
+	int ggTras;
+	for(int i=0; i<n; i++){
+		ggTras=30*(l[i].restituzione.mese-l[i].prestito.mese)*l[i].restituzione.giorno+(30-l[i].prestito.giorno);
+		if(ggTras>40){
+			pritnf("Titolo: %s",l[*n].titolo);
+			pritnf("Autore: %s",l[*n].autpore);
+		}
+	}
+}
 int main(){
 
     libro* biblioteca=NULL;
