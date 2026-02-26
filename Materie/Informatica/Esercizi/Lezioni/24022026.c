@@ -54,6 +54,12 @@ libro* InserisciLibro(libro* l, int* n){
 	scanf("%d",&l[*n].copietot);
 	l[*n].prestito.giorno=0;
 	l[*n].restituzione.giorno=0;
+	l[*n].data_restituzione.giorno = 0;
+	l[*n].data_restituzione.anno = 0;
+	l[*n].data_restituzione.mese = 0;
+	(*n)++;
+    //getchar(); 
+    return l;
 }
 
 void stampa(libro *l, int n){
@@ -96,6 +102,9 @@ void registraLibro(libro *l,int n){
 			printf("Libro non disponibile.");
 		}
 	}
+	if(!trovato)
+		printf("\nLibro non trovato");
+	return;
 }
 
 void visualizzaLibriPrestito(libro* l, int n){
@@ -149,13 +158,10 @@ int main(){
 
 				break;
 			case 5:
-
+				visualizzaLibriPrestito(biblioteca,n);
 				break;
 			case 6:
-
-				break;
-			case 7:
-				printf("Esci dal programma.\n");
+				visualizzaPrestitoScaduto(biblioteca,n);
 				break;
 		}
 	}while(scelta!=7);
