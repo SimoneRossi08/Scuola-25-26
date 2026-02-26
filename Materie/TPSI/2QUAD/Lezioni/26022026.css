@@ -1,0 +1,17 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background: #e89900;
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+}
+#container{
+    width: 960px;
+    margin: 0px auto;
+    background: #fff;
+}
+#header{
+    width: 920px;
+    padding: 5px 20px;
+    background: ;
+}
