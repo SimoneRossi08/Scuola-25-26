@@ -23,7 +23,7 @@ typedef struct prodotto{
 prodotto inserireProdotto(prodotto* p, int* n){
 
     p=(prodotto*)realloc(p, ((*n)+1)*sizeof(prodotto));
-	if(l==NULL){
+	if(p==NULL){
 		printf("Errore di allocazione!");
 		exit(p);
 	}
