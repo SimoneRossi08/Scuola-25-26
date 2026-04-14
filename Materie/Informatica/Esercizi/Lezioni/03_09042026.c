@@ -7,6 +7,7 @@ typedef struct Contatto{
 
     char nome[30];
     char telefono[15];
+    
 }Contatto;
 
 void aggiungiContatto(){
@@ -73,5 +74,5 @@ int main(){
                 break;
         }
     }
-    while(scelta==0);
+    while(scelta!=0);
 }
