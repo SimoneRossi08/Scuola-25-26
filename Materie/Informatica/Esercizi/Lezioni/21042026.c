@@ -75,7 +75,7 @@ void eliminaContatto(){
     getchar();
 
     while(fread(&c, sizeof(Contatto), 1, fp)){
-        if(strcmp(c.nome,cercaNome)==0 && strcmp(c.nome,cercaTelefono)==0){
+        if(strcmp(c.nome,cercaNome)==0 && strcmp(c.telefono,cercaTelefono)==0){
             printf("\nPersona trovata. ");
             printf("\nL'elemento sarà eliminato...");
         }
