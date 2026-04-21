@@ -45,8 +45,8 @@ void visualizzaRubrica(){
 
     Contatto c;
     printf("\n--- Rubrica ---\n");
-    while (fread(&c, sizeof(Contatto), 1, fp) == 1){
-        printf("Nome: %s, Telefono: %s Sesso: %s\n", c.nome, c.telefono, c.sesso);
+    while (fread(&c, sizeof(Contatto), 1, fp)==1){
+        printf("Nome: %s, Telefono: %s Sesso: %c\n", c.nome, c.telefono, c.sesso);
     }
     fclose(fp);
     printf("---------------\n");
@@ -54,7 +54,7 @@ void visualizzaRubrica(){
 
 void eliminaContatto(){
 
-    char cerca[30];
+    char cercaNome[30], caercaTelefono[15];
     Contatto c;
     FILE *fp=fopen("21042026.dat", "rb");
     FILE *fpTmp=fopen("21042026_temp.dat", "wb");
@@ -68,13 +68,16 @@ void eliminaContatto(){
     }
 
     printf("Inserire il nome:");
-    scanf(" %[^\n]", cerca);
+    scanf(" %[^\n]", cercaNome);
+    getchar();
+    printf("Inserire il numero di telefono:");
+    scanf(" %[^\n]", caercaTelefono);
     getchar();
 
     while(fread(&c, sizeof(Contatto), 1, fp)){
-        if(strcmp(c.nome,cerca)==0){
-            printf("Nome trovato.");
-            printf("L'elemento sarà eliminaato...");
+        if(strcmp(c.nome,cercaNome)==0 && strcmp(c.nome,caercaTelefono)==0){
+            printf("\nPersona trovata. ");
+            printf("\nL'elemento sarà eliminato...");
         }
         else{
             fwrite(&c,sizeof(Contatto),1,fpTmp);
@@ -93,6 +96,56 @@ void eliminaContatto(){
 
     fclose(fp);
     fclose(fpTmp);
+}
+
+void separaContatti(){
+
+    Contatto c;
+    FILE *fp=fopen("21042026.dat", "rb");
+    FILE *fpF=fopen("21042026f.dat", "ab");
+    FILE *fpM=fopen("21042026m.dat", "ab");
+    if(fp==NULL){
+        printf("Errore apertura file!\n");
+        return;
+    }
+    if(fpF==NULL){
+        printf("Errore apertura file!\n");
+        return;
+    }
+    if(fpM==NULL){
+        printf("Errore apertura file!\n");
+        return;
+    }
+
+    while(fread(&c, sizeof(Contatto), 1, fp)){
+        if(c.sesso=='f'||c.sesso=='F'){
+            fwrite(&c,sizeof(Contatto),1,fpF);
+        }
+        else if(c.sesso=='m'||c.sesso=='M'){
+            fwrite(&c,sizeof(Contatto),1,fpF);
+        }
+    }
+    fclose(fp);
+    fclose(fpF);
+    fclose(fpM);
+
+    fpF=fopen("21042026f.dat", "rb");
+    fpM=fopen("21042026m.dat", "rb");
+
+    printf("\n--- Rubrica Femmine ---\n");
+    while (fread(&c, sizeof(Contatto), 1, fpF)==1){
+        printf("Nome: %s, Telefono: %s Sesso: %c\n", c.nome, c.telefono, c.sesso);
+    }
+    printf("---------------\n");
+
+    printf("\n--- Rubrica Maschi ---\n");
+    while (fread(&c, sizeof(Contatto), 1, fpF)==1){
+        printf("Nome: %s, Telefono: %s Sesso: %c\n", c.nome, c.telefono, c.sesso);
+    }
+    printf("---------------\n");
+
+    fclose(fpF);
+    fclose(fpM);
 }
 
 int main(){
@@ -121,7 +174,7 @@ int main(){
                 eliminaContatto();
                 break;
             case 4:
-
+                separaContatti();
                 break;
             case 0:
                 printf("Uscita dal programma.\n");
