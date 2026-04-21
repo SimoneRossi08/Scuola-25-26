@@ -54,7 +54,7 @@ void visualizzaRubrica(){
 
 void eliminaContatto(){
 
-    char cercaNome[30], caercaTelefono[15];
+    char cercaNome[30], cercaTelefono[15];
     Contatto c;
     FILE *fp=fopen("21042026.dat", "rb");
     FILE *fpTmp=fopen("21042026_temp.dat", "wb");
@@ -71,7 +71,7 @@ void eliminaContatto(){
     scanf(" %[^\n]", cercaNome);
     getchar();
     printf("Inserire il numero di telefono:");
-    scanf(" %[^\n]", caercaTelefono);
+    scanf(" %[^\n]", cercaTelefono);
     getchar();
 
     while(fread(&c, sizeof(Contatto), 1, fp)){
