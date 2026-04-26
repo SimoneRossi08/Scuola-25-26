@@ -32,8 +32,9 @@ void scriviStudenti(char *nome_file, int n_studenti){
         printf("Inserisci media studente %d: ", i+1);
         scanf("%f", &s.media);
         getchar();
-        fwrite(%s, sizeof(studente),1,f);
+        fwrite(&s, sizeof(studente),1,f);
     }
+
     fclose(f);
     if(error(f)){
         printf("Errore chiusura file...");
