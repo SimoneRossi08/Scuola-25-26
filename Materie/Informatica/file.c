@@ -9,3 +9,4 @@ fgetc(FILE *f);
 fputc(int c, FILE *f);
 fprintf(f, "%d\n", n);
 fscanf(f, "%d", &n);
+scanf(" %[^\n]", c.nome);
