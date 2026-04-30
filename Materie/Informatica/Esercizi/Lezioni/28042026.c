@@ -35,13 +35,13 @@ void aggiungiLibro(){
     }
 
     printf("\nInserisci autore:");
-    scanf("%[^\n]", lib.autore);
+    scanf(" %[^\n]", lib.autore);
     printf("\nInserisci titolo:");
-    scanf("%[^\n]", lib.titolo);
+    scanf(" %[^\n]", lib.titolo);
     printf("\nInserisci ISBN:");
-    scanf("%[^\n]", lib.ISBN);
+    scanf(" %[^\n]", lib.ISBN);
     printf("\nInserisci anno:");
-    scanf("%d", lib.anno);
+    scanf("%d", &lib.anno);
 
     fwrite(&lib, sizeof(Libro), 1, f);
     fclose(f);
@@ -157,8 +157,8 @@ void modificaISBN(){
     getchar();
 
     while(fread(&l, sizeof(Libro), 1, f)==1){
-        if(l.ISBN==isbn){
-            l.ISBN=Nisbn;
+        if(strcmp(l.ISBN, isbn)==0){
+            strcpy(l.ISBN, Nisbn);
             fseek(f, sizeof(Libro), SEEK_CUR);
             fwrite(&l, sizeof(int), 1, f);
         }
@@ -176,8 +176,8 @@ int main(){
         printf("\n3. Cerca libro.");
         printf("\n4. Modifica ISBN.");
         printf("\n5. Separa libri del 2000.");
-        printf("\n0. Esci...");
-        scanf("%d", opt);
+        printf("\n0. Esci...\n");
+        scanf("%d", &opt);
         getchar();
 
         switch(opt){
@@ -203,5 +203,7 @@ int main(){
                 printf("\nERRORE...");
                 break;
         }
-    }
+    }while(opt==0);
+
+    return 0;
 }
