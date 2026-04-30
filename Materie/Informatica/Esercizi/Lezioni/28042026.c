@@ -16,6 +16,7 @@ typedef struct{
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 typedef struct{
       char autore[30];
@@ -42,7 +43,7 @@ void aggiungiLibro(){
     printf("\nInserisci anno:");
     scanf("%d", lib.anno);
 
-    fwrite(&lib, sizeof(Libro), f);
+    fwrite(&lib, sizeof(Libro), 1, f);
     fclose(f);
 }
 
@@ -68,8 +69,74 @@ void ricercaLibro(){
     fclose(f);
 }
 
+void separaLibri(){
+    
+    Libro lib;
+    FILE *f=fopen("28042026.bin", "rb");
+    if(f==NULL){
+        printf("\nERRORE...");
+    }
+    FILE *f1=fopen("28042026l1.bin", "ab");
+    if(f1==NULL){
+        printf("\nERRORE...");
+    }
+    FILE *f2=fopen("28042026l2.bin", "ab");
+    if(f2==NULL){
+        printf("\nERRORE...");
+    }
+
+    if(lib.anno>=2000){
+        fwrite(&lib, sizeof(Libro), 1, f1);
+    }
+    else{
+        fwrite(&lib, sizeof(Libro), 1, f2);
+    }
+}
+
 void rimuoviLibro(){
 
+    Libro lib;
+    char libro[30];
+
+    FILE *f=fopen("28042026.bin", "rb");
+    if(f==NULL){
+        printf("\nERRORE...");
+    }
+    FILE *t=fopen("28042026t.dat", "wb");
+    if(t==NULL){
+        printf("\nERRORE...");
+    }
+
+    printf("\nInserisci il titolo del libro da rimuovere:");
+    scanf("%[^\n]", libro);
+
+    while(fread(&lib, sizeof(Libro), 1, f)){
+        if(strcmp(lib.titolo, libro)==0){
+            printf("\nLibro rimosso...");
+        }
+        else{
+            fwrite(&lib, sizeof(Libro), 1, t);
+        }
+    }
+
+    fclose(f);
+    fclose(t);
+
+    f=fopen("28042026.bin", "wb");
+    if(f==NULL){
+        printf("\nERRORE...");
+    }
+    t=fopen("28042026t.dat", "rb");
+    if(t==NULL){
+        printf("\nERRORE...");
+    }
+
+    while(fread(&lib, sizeof(Libro), 1, t)){
+        fwrite(&lib, sizeof(Libro), 1, f);
+    }
+
+    fclose(f);
+    fclose(t);
 }
 
 void modificaISBN(){
@@ -93,7 +160,7 @@ void modificaISBN(){
         if(l.ISBN==isbn){
             l.ISBN=Nisbn;
             fseek(f, sizeof(Libro), SEEK_CUR);
-            fwrite(&Nl, sizeof(int), 1, f);
+            fwrite(&l, sizeof(int), 1, f);
         }
     }
     fclose(f);
@@ -108,7 +175,6 @@ int main(){
         printf("\n2. Rimuovi libro.");
         printf("\n3. Cerca libro.");
         printf("\n4. Modifica ISBN.");
-
         printf("\n5. Separa libri del 2000.");
         printf("\n0. Esci...");
         scanf("%d", opt);
@@ -125,8 +191,10 @@ int main(){
                 ricercaLibro();
                 break;
             case 4:
+                modificaISBN();
                 break;
             case 5:
+                separaLibri();
                 break;
             case 0:
                 printf("\nChiusura del programma...");
