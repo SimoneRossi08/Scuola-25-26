@@ -166,6 +166,52 @@ void modificaISBN(){
     fclose(f);
 }
 
+void stampaLibri(){
+
+    Libro l;
+    int opt;
+
+    printf("\nQuale lista di libri da stampare?");
+    printf("\n1. Lista completa");
+    printf("\n2. Lista pre-2000");
+    printf("\n3. Lista post-2000\n");
+    scanf("%d", &opt);
+    getchar();
+
+    switch(opt){
+        case 1:
+            FILE *f=fopen("28042026.bin", "rb");
+            if(f==NULL){
+                printf("\nERRORE...");
+            }
+            while(fread(&l, sizeof(Libro), 1, f)==1){
+                printf("\n\nTitolo: %s \nAutore: %s \nAnno: %d", l.titolo, l.autore, l.anno);
+            }
+            break;
+        case 2:
+            FILE *f1=fopen("28042026l1.bin", "rb");
+            if(f==NULL){
+                printf("\nERRORE...");
+            }
+            while(fread(&l, sizeof(Libro), 1, f1)==1){
+                printf("\n\nTitolo: %s \nAutore: %s \nAnno: %d", l.titolo, l.autore, l.anno);
+            }
+            break;
+        case 3:
+            FILE *f2=fopen("28042026l2.bin", "rb");
+            if(f==NULL){
+                printf("\nERRORE...");
+            }
+            while(fread(&l, sizeof(Libro), 1, f2)==1){
+                printf("\n\nTitolo: %s \nAutore: %s \nAnno: %d\n", l.titolo, l.autore, l.anno);
+            }
+            break;
+        default:
+            printf("\nERRORE...");
+            break;
+    }
+}
+
 int main(){
 
     int opt;
@@ -176,6 +222,7 @@ int main(){
         printf("\n3. Cerca libro.");
         printf("\n4. Modifica ISBN.");
         printf("\n5. Separa libri del 2000.");
+        printf("\n6. Visualizza libri.");
         printf("\n0. Esci...\n");
         scanf("%d", &opt);
         getchar();
@@ -195,6 +242,9 @@ int main(){
                 break;
             case 5:
                 separaLibri();
+                break;
+            case 6:
+                stampaLibri();
                 break;
             case 0:
                 printf("\nChiusura del programma...");
