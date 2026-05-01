@@ -85,11 +85,13 @@ void separaLibri(){
         printf("\nERRORE...");
     }
 
-    if(lib.anno>=2000){
-        fwrite(&lib, sizeof(Libro), 1, f1);
-    }
-    else{
-        fwrite(&lib, sizeof(Libro), 1, f2);
+    while(fread(&lib, sizeof(Libro), 1, f)==1){
+        if(lib.anno>=2000){
+            fwrite(&lib, sizeof(Libro), 1, f1);
+        }
+        else{
+            fwrite(&lib, sizeof(Libro), 1, f2);
+        }
     }
 }
 
@@ -185,7 +187,7 @@ void stampaLibri(){
                 printf("\nERRORE...");
             }
             while(fread(&l, sizeof(Libro), 1, f)==1){
-                printf("\n\nTitolo: %s \nAutore: %s \nAnno: %d", l.titolo, l.autore, l.anno);
+                printf("\nTitolo: %s Autore: %s Anno: %d", l.titolo, l.autore, l.anno);
             }
             break;
         case 2:
@@ -194,7 +196,7 @@ void stampaLibri(){
                 printf("\nERRORE...");
             }
             while(fread(&l, sizeof(Libro), 1, f1)==1){
-                printf("\n\nTitolo: %s \nAutore: %s \nAnno: %d", l.titolo, l.autore, l.anno);
+                printf("\nTitolo: %s Autore: %s Anno: %d", l.titolo, l.autore, l.anno);
             }
             break;
         case 3:
@@ -203,7 +205,7 @@ void stampaLibri(){
                 printf("\nERRORE...");
             }
             while(fread(&l, sizeof(Libro), 1, f2)==1){
-                printf("\n\nTitolo: %s \nAutore: %s \nAnno: %d\n", l.titolo, l.autore, l.anno);
+                printf("\nTitolo: %s Autore: %s Anno: %d", l.titolo, l.autore, l.anno);
             }
             break;
         default:
