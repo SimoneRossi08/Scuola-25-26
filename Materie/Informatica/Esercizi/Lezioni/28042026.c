@@ -203,7 +203,7 @@ int main(){
                 printf("\nERRORE...");
                 break;
         }
-    }while(opt==0);
+    }while(opt!=0);
 
     return 0;
 }
